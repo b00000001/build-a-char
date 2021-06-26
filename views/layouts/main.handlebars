@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="rpgawesome" href="../node_modules/rpg-awesome/css/rpg-awesome.min.css">
+  <title>Build-a-Char</title>
+</head>
+
+<body>
+  <section class="hero is-small is-dark">
+    <div class="hero-head">
+      <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+        {{#if logged_in}}
+        <div class="navbar-menu">
+          <div class="navbar-start">
+            <div class="navbar-item">
+              <div class="navbar-item">
+                <a class="button is-light">
+                  <strong>Create a Character</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="title is-4 has-text-centered p-3 mt-3">
+                Welcome {{user.name}}&nbsp;,
+              </a>
+              <a class="button is-light">
+                <strong>Logout</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+        {{/if}}
+      </nav>
+    </div>
+    <div class="hero-body has-text-centered mb-5">
+      <a class="title is-1" href="">
+        Build-a-Char
+      </a>
+    </div>
+  </section>
+  <main>
+    {{{body}}}
+  </main>
+
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+</html>
