@@ -19,7 +19,7 @@
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
-        {{!-- {{#if logged_in}} --}}
+       {{#if logged_in}}
         <div class="navbar-menu">
           <div class="navbar-start">
             <div class="navbar-item">
@@ -37,13 +37,13 @@
               <a class="title is-4 has-text-centered p-3 mt-3">
                 Welcome {{user.name}}&nbsp;,
               </a>
-              <a class="button is-light">
+              <a class="button is-light" id="logout">
                 <strong>Logout</strong>
               </a>
             </div>
           </div>
         </div>
-        {{!-- {{/if}} --}}
+        {{/if}}
       </nav>
     </div>
     <div class="hero-body has-text-centered mb-5">
@@ -55,9 +55,9 @@
   <main>
     {{{body}}}
   </main>
-{{!-- 
-  {{#if logged_in}} --}}
+
+  {{#if logged_in}}
   <script src="/js/logout.js"></script>
-  {{!-- {{/if}} --}}
+  {{/if}}
 </body>
 </html>
