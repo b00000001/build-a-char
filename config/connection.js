@@ -17,3 +17,5 @@ if (process.env.rpgDB) {
 		}
 	);
 }
+
+module.exports = sequelize;
