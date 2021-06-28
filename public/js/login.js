@@ -8,9 +8,18 @@ const loginHandler = async (event) => {
         const response = await fetch("/api/users/login", {
             method: "POST",
             body: JSON.stringify({ email, password }),
-            headers:{ "Content-Type":"application/json" },
+            headers:{ "Content-Type": "application/json" },
         });
-
+      //  fetch("/api/users/login", {
+      //       method: "POST",
+      //       body: JSON.stringify({ email, password }),
+      //       headers:{ "Content-Type": "application/json" },
+      //   })
+      //  .then(response => {
+      //    response.json();
+      //  }).then (data => {
+      //    console.log(data);
+      //  })
         if (response.ok) {
             document.location.replace("/list");
         } else {
@@ -34,7 +43,7 @@ const signupHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace("/list");
+        document.location.replace("/login");
       } else {
         alert("Failed to sign up, please try again.");
       }
