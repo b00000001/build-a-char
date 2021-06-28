@@ -14,7 +14,7 @@ Class.belongsTo(Character, {
     foreignKey: "character_id",
 });
 
-Character.hasMany(Class, {
+Character.hasOne(Class, {
     foreignKey: "character_id",
 });
 

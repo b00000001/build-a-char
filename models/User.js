@@ -34,14 +34,6 @@ User.init(
                 len: [6],
             },
         },
-        character: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            references: {
-                model: "character",
-                key: "id",
-            },
-        },
     },
     {
         sequelize,
