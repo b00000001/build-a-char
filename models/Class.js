@@ -43,6 +43,14 @@ Class.init(
             type: DataTypes.INTEGER,
             allowNull: false,
         },
+        character_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: "character",
+                key: "id",
+            },
+        },
     },
     {
         sequelize,

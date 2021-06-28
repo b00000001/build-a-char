@@ -23,11 +23,11 @@ Character.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        Class: {
-            type: DataTypes.STRING,
+        user_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: "class",
+                model: "user",
                 key: "id",
             },
         },
