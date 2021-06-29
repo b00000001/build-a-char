@@ -63,4 +63,36 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  try {
+    console.log(1);
+    const characterData = await Character.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    
+    console.log(4);
+    res.status(200).json(characterData);
+    console.log(5);
+  } catch (err) {
+    console.log(6);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  try{ 
+      const characterData = await Character.findByPk(req.params.id);
+      if(!characterData) {
+          res.status(404).json({message: 'No character with this id!'});
+          return;
+      }
+      const character = characterData.get({ plain: true });
+      res.render('character', character);
+    } catch (err) {
+        res.status(500).json(err);
+    };     
+});
+
 module.exports = router;
