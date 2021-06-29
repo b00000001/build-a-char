@@ -12,12 +12,14 @@ const characterData = [
     race: "Human",
     gender: "Male",
     class_id: "2",
+
   },
   {
     name: "Jaina",
     race: "Human",
     gender: "Female",
     class_id: "3",
+
   },
   {
     name: "Valeera",
@@ -25,6 +27,7 @@ const characterData = [
     gender: "female",
     class_id: "4"
   },
+
 ];
 
 const seedCharacters = () => Character.bulkCreate(characterData);
