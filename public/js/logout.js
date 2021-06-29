@@ -5,7 +5,7 @@ const logoutHandler = async () => {
     });
 
     if(response.ok) {
-        document.location.replace("/login");
+        document.location.replace("/");
     } else {
         alert("ERROR: you have not been logged out");
     }
