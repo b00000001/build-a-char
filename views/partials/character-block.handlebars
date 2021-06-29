@@ -1,19 +1,30 @@
-<div class="columns mt-5 is-8 is-variable is-multiline">
-<div class="column is-7-desktop p-5">
-    <div class="card">
-      <div class="media-content">
-        <h2 class="title is-4 is-size-2 p-5">Character #{{id}}: {{name}}</h2>
+<div class="column is-6">
+  <div class="card">
+        <h2 class="title p-2">{{name}}</h2>
+    <div class="columns">
+      <ul class="media-content is-6 p-4">
+        <li class="p-2">Race: {{race}}</li>
+        <li class="p-2">Gender: {{gender}}</li>
+        <li class="p-2">Class: {{class}}</li>
+      </ul>
+      <ul class="media-content is-6 p-4">
+
+        <li class="p-2">Strength:</li>
+
+        <li class="p-2">Dexterity:</li>
+
+        <li class="p-2">Intelligence:</li>
+
+        <li class="p-2">Charisma:</li>
+
+        <li class="p-2">Constitution:</li>
+      </ul>
+
+    </div>
+    <div class="column is-1-desktop p-2">
+      <div class="has-text-centered p-2">
+        <button class="button is-medium p-2 is-rounded is-danger" id="deleteCharacter" data-id="{{id}}">Delete</button>
       </div>
-    </div>
-  </div>
-  <div class="column is-2-desktop p-5">
-    <div class="has-text-centered p-5">
-      <button class="button is-medium p-5 is-rounded is-info">View Character</button>
-    </div>
-  </div>
-  <div class="column is-2-desktop p-5">
-    <div class="has-text-centered p-5">
-      <button class="button is-medium p-5 is-rounded is-danger" id="deleteCharacter" data-id="{{id}}">Delete</button>
     </div>
   </div>
 </div>
