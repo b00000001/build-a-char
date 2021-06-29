@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Character extends Model { }
+class Character extends Model {}
 
 Character.init(
   {
@@ -9,34 +9,42 @@ Character.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     race: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     gender: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     class_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: {
         model: "class",
-        key: "id",
-      },
+        key: "id"
+      }
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: "user",
+        key: "id"
+      }
+    }
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "character",
+    modelName: "character"
   }
 );
 
