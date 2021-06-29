@@ -1,6 +1,5 @@
-const { Character } = require("../models");
-
 const router = require("express").Router();
+const { Character } = require("../models");
 const { User } = require("../models");
 // const withAuth = require('../utils/auth');
 
@@ -22,12 +21,12 @@ router.get("/login", (req, res) => {
 router.get("/list", async (req, res) => {
   try {
     const userData = await User.findAll({});
-    // const characterData = await Character.findAll({});
+    const characterData = await Character.findAll({});
 
     const users = userData.map((project) => project.get({ plain: true }));
-    // const characters = characterData.map((character) =>
-    //   character.get({ plain: true })
-    // );
+    const characters = characterData.map((character) =>
+      character.get({ plain: true })
+    );
 
     const currentUserData = await User.findByPk(req.session.user_id);
     const user = currentUserData.get({ plain: true });
@@ -36,7 +35,7 @@ router.get("/list", async (req, res) => {
 
     res.render("list", {
       user,
-      //   characters,
+      characters,
       users,
       logged_in: req.session.logged_in
     });
