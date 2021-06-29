@@ -85,18 +85,4 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
-  try{ 
-      const characterData = await Character.findByPk(req.params.id);
-      if(!characterData) {
-          res.status(404).json({message: 'No character with this id!'});
-          return;
-      }
-      const character = characterData.get({ plain: true });
-      res.render('character', character);
-    } catch (err) {
-        res.status(500).json(err);
-    };     
-});
-
 module.exports = router;
