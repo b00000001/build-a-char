@@ -44,6 +44,10 @@ router.get("/list", async (req, res) => {
   }
 });
 
+router.get("/character", (req, res) => {
+  res.render("character");
+});
+
 router.post("/", async (req, res) => {
   try {
     const dbCharaData = await Character.create({
