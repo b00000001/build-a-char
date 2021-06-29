@@ -17,8 +17,9 @@ const createCharacterHandler = async (event) => {
     } else {
       alert("Your Character was not created!");
     }
-  }};
+  }
+};
 
-  document
-    .querySelector("#createCharacter")
-    .addEventListener("click", createCharacterHandler);
+document
+  .querySelector("#createCharacter")
+  .addEventListener("click", createCharacterHandler);
