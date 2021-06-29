@@ -23,14 +23,14 @@ Character.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        // user_id: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     references: {
-        //         model: "user",
-        //         key: "id",
-        //     },
-        // },
+        class_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: "class",
+                key: "id",
+            },
+        },
     },
     {
         sequelize,

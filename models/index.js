@@ -1,21 +1,30 @@
 const User = require("./User");
 const Character = require("./Character");
 const Class = require("./Class");
+const UserCharacter = require("./UserCharacter");
 
-Character.belongsTo(User, {
-    foreignKey: "user_id",
+Character.belongsToMany(User, {
+  through: {
+    model: UserCharacter,
+    unique: false,
+  },
+  as: "user_list"
 });
 
-User.hasMany(Character, {
-    foreignKey: "user_id",
+User.belongsToMany(Character, {
+  through: {
+    model: UserCharacter,
+    unique: false,
+  },
+  as: "character_list"
 });
 
-Class.belongsTo(Character, {
-    foreignKey: "character_id",
+Class.hasMany(Character, {
+  foreignKey: "class_id",
 });
 
-Character.hasOne(Class, {
-    foreignKey: "character_id",
+Character.belongsTo(Class, {
+  foreignKey: "class_id",
 });
 
-module.exports = { User, Character, Class };
+module.exports = { User, Character, Class, UserCharacter };
