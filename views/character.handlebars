@@ -1,52 +1,28 @@
-<form class="columns mt-5 is-8 is-variable is-centered is-multiline">
-  <div class="column is-5-desktop p-5">
-    <div class="field is-horizontal">
-      <div class="field-label is-large">
-        <label class="label">Name:</label>
+  <form class="columns mt-5 is-8 is-variable is-centered is-multiline">
+    <div class="column is-5-desktop p-5">
+      <label class="title p-2">Name:</label>
+      <div class="control">
+        <input class="input is-normal m-3" type="text" id="CharaName" placeholder="Please enter your name here">
       </div>
-      <div class="field-body">
-        <div class="field">
+    <div class="columns">
+      <ul class="media-content is-6 p-4">
+        <li>
+          <label class="title p-2">Race:</label>
           <div class="control">
-            <input class="input is-normal mt-3" type="text" id="CharaName" placeholder="Please enter your name here">
+            <input class="input is-normal m-3" type="text" id="CharaRace" placeholder="Please enter your race here">
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-label is-large">
-        <label class="label">Race:</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
+        </li>
+        <li>
+          <label class="title p-2">Gender:</label>
           <div class="control">
-            <input class="input is-normal mt-3" type="text" id="CharaRace" placeholder="Please enter your race here">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="field is-horizontal">
-      <div class="field-label is-large">
-        <label class="label">Gender:</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
-          <div class="control">
-            <input class="input is-normal mt-3" type="text" id="CharaGender"
+            <input class="input is-normal m-3" type="text" id="CharaGender"
               placeholder="Please enter your gender here">
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="column is-5-desktop p-5">
-    <div class="field is-horizontal">
-      <div class="field-label is-large">
-        <label class="label">Class:</label>
-      </div>
-      <div class="field-body">
-        <div class="field">
+        </li>
+        <li>
+          <label class="title p-2">Class:</label>
           <div class="control">
-            <div class="select">
+            <div class="select m-3">
               <select id="CharaClass">
                 <option disabled hidden selected>Select</option>
                   <option value="1">Warrior</option>
@@ -56,72 +32,38 @@
               </select>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="field is-horizontal">
-        <div class="field-label is-large">
-          <label class="label">HP:</label>
-        </div>
-      </div>
-      <div class="field is-horizontal">
-        <div class="field-label is-large">
-          <label class="label">MP:</label>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
-  </div>
-</form>
+  </form>
+  
+  <form class="columnsis-variable is-centered is-multiline p-3 m-1">
+    <div class="column p-3">
+      <div class="column is-12">
+  <div class="card">
+      <ul class="media-content is-6 p-4">
+        <li class="title p-2">HP:</li>
 
-<form class="columns mt-5 is-8 is-variable is-centered is-multiline p-5 m-1">
-  <div class="column is-5-desktop p-5">
-    <div class="card">
-      <div class="media-content">
-        <h2 class="title is-4 is-size-2 p-5">Stats:</h2>
-      </div>
-      <div class="media-content">
-        <h2 class="title is-4 is-size-4 p-5">Strength:</h2>
-      </div>
-      <div class="media-content">
-        <h2 class="title is-4 is-size-4 p-5">Dexterity:</h2>
-      </div>
-      <div class="media-content">
-        <h2 class="title is-4 is-size-4 p-5">Intelligence:</h2>
-      </div>
-      <div class="media-content">
-        <h2 class="title is-4 is-size-4 p-5">Charisma:</h2>
-      </div>
-      <div class="media-content">
-        <h2 class="title is-4 is-size-4 p-5">Constitution:</h2>
-      </div>
+        <li class="title p-2">MP:</li>
+
+        <li class="title p-2">Strength:</li>
+
+        <li class="title p-2">Dexterity:</li>
+
+        <li class="title p-2">Intelligence:</li>
+
+        <li class="title p-2">Charisma:</li>
+
+        <li class="title p-2">Constitution:</li>
+      </ul>
+
     </div>
-  </div>
-  <form class="columns mt-5 is-8 is-variable is-centered is-multiline p-5 m-2">
-    <div class="column is-5-desktop p-5">
-      <div class="card">
-        <div class="media-content">
-          <h2 class="title is-4 is-size-2 p-5">Skills:</h2>
-        </div>
-        <div class="media-content">
-          <h2 class="title is-4 is-size-2 p-5">1:</h2>
-        </div>
-        <div class="media-content">
-          <h2 class="title is-4 is-size-2 p-5">2:</h2>
-        </div>
-        <div class="media-content">
-          <h2 class="title is-4 is-size-2 p-5">3:</h2>
-        </div>
-        <div class="media-content">
-          <h2 class="title is-4 is-size-2 p-5">4:</h2>
-        </div>
+  
+    <div class="column is-2-desktop p-5">
+      <div class="p-5">
+        <button class="button is-medium p-5 is-rounded is-info" id="createCharacter">Submit</button>
       </div>
     </div>
   </form>
-
-  <div class="column is-2-desktop p-5">
-    <div class="has-text-centered p-5">
-      <button class="button is-medium p-5 is-rounded is-info" id="createCharacter">Submit</button>
-    </div>
-  </div>
-</form>
-
-<script src="/js/create.js"></script>
+  
+  <script src="/js/create.js"></script>
