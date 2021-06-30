@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Character } = require("../../models");
+
 router.post("/", async (req, res) => {
   try {
     console.log(req.session.user_id);
@@ -13,6 +14,7 @@ router.post("/", async (req, res) => {
       });
       res.status(200).json(dbCharaData);
     } else {
+      console.log("Test");
       res.redirect("/login");
     }
   } catch (err) {
