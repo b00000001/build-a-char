@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Character } = require("../models");
 const { User } = require("../models");
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 router.get("/", (req, res) => {
   res.render("login");
@@ -18,7 +18,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/list", async (req, res) => {
+router.get("/list", withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({});
     const characterData = await Character.findAll({});
@@ -44,8 +44,8 @@ router.get("/list", async (req, res) => {
   }
 });
 
-router.get("/character", (req, res) => {
-  res.render("character");
+router.get("/character", withAuth, (req, res) => {
+  res.render("character", {logged_in: req.session.logged_in});
 });
 
 router.post("/", async (req, res) => {
