@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Character, User } = require("../models");
-const withAuth = require('../utils/auth');
+const withAuth = require("../utils/auth");
 
 router.get("/", (req, res) => {
   res.render("login");
@@ -42,7 +42,7 @@ router.get("/list", withAuth, async (req, res) => {
 });
 
 router.get("/character", withAuth, (req, res) => {
-  res.render("character", {logged_in: req.session.logged_in});
+  res.render("character", { loggedIn: req.session.loggedIn });
 });
 
 router.post("/", async (req, res) => {
@@ -69,10 +69,10 @@ router.delete("/:id", async (req, res) => {
     console.log(1);
     const characterData = await Character.destroy({
       where: {
-        id: req.params.id,
-      },
+        id: req.params.id
+      }
     });
-    
+
     console.log(4);
     res.status(200).json(characterData);
     console.log(5);

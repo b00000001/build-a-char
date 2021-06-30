@@ -6,6 +6,7 @@
       "node": true,
       "es6": true
     },
+    "parserOptions": {"ecmaVersion": 6},
     "rules": {
       "no-duplicate-case": "error",
       "no-empty": "error",
