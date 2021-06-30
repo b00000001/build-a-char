@@ -3,5 +3,5 @@ const characterHandler = async () => {
   };
 
 document
-  .querySelector("#createCharacter")
+  .querySelector("#characterButton")
   .addEventListener("click", characterHandler);
