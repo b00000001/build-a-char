@@ -21,25 +21,22 @@ router.get("/login", (req, res) => {
 router.get("/list", withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({});
-    const characterData = await Character.findAll({});
     const users = userData.map((project) => project.get({ plain: true }));
+    const characterData = await Character.findAll({});
     const characters = characterData.map((character) =>
       character.get({ plain: true }));
-    // const classData = await Class.findAll({});
-    // const classes = classData.map((charaClass) => charaClass.get({ plain: true }));
+    const classData = await Class.findAll({});
+    const classes = classData.map((charaClass) => charaClass.get({ plain: true }));
+    characters.forEach((character,i) => character.class=classes[i]);
 
     console.log(req.session.user_id);
     const currentUserData = await User.findByPk(req.session.user_id);
     const user = currentUserData.get({ plain: true });
-    // const currentClassData = await Class.findByPk(req.session.class_id);
-    // const classDB = currentClassData.get({ plain: true });
     delete user.password;
     res.render("list", {
       user,
       characters,
       users,
-      // classes,
-      // classDB,
       loggedIn: req.session.loggedIn
     });
     console.log(8);
@@ -73,18 +70,14 @@ router.post("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    console.log(1);
     const characterData = await Character.destroy({
       where: {
         id: req.params.id
       }
     });
 
-    console.log(4);
     res.status(200).json(characterData);
-    console.log(5);
   } catch (err) {
-    console.log(6);
     res.status(500).json(err);
   }
 });
