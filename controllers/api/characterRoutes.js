@@ -5,6 +5,7 @@ router.post("/", async (req, res) => {
   try {
     console.log(req.session.user_id);
     if (req.session.user_id) {
+      console.log(req.body);
       const dbCharaData = await Character.create({
         name: req.body.name,
         race: req.body.race,
@@ -15,7 +16,7 @@ router.post("/", async (req, res) => {
       res.status(200).json(dbCharaData);
     } else {
       console.log("Test");
-      res.redirect("/login");
+      res.redirect("/");
     }
   } catch (err) {
     console.log(err);
