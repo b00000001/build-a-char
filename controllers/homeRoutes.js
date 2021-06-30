@@ -1,4 +1,5 @@
 const router = require("express").Router();
+
 const { Character, User, Class } = require("../models");
 const withAuth = require('../utils/auth');
 
