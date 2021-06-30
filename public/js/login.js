@@ -34,8 +34,7 @@ const signupHandler = async (event) => {
     });
 
     if (response.ok) {
-      alert("You have successfully signed up, you may now log in!")
-      document.location.replace("/");
+      document.location.replace("/list");
     } else {
       alert("Failed to sign up, please try again.");
     }
@@ -43,9 +42,9 @@ const signupHandler = async (event) => {
 };
 
 document
-  .querySelector("#signupForm")
-  .addEventListener("click", signupHandler);
+.querySelector("#loginForm")
+.addEventListener("click", loginHandler);
 
 document
-  .querySelector("#loginForm")
-  .addEventListener("click", loginHandler);
+.querySelector("#signupForm")
+.addEventListener("click", signupHandler);
