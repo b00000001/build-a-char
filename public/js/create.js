@@ -4,12 +4,12 @@ const createCharacterHandler = async (event) => {
   const name = document.querySelector("#CharaName").value.trim();
   const race = document.querySelector("#CharaRace").value.trim();
   const gender = document.querySelector("#CharaGender").value.trim();
-
-  if (name && race && gender) {
-    console.log(name, race, gender);
+  const charaClass = document.querySelector("#CharaClass").value;
+  
+  if (name && race && gender && charaClass) {
     const response = await fetch("/api/characters", {
       method: "POST",
-      body: JSON.stringify({ name, race, gender }),
+      body: JSON.stringify({ name, race, gender, charaClass }),
       headers: { "Content-Type": "application/json" }
     });
 
