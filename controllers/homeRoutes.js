@@ -22,24 +22,26 @@ router.get("/list", withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({});
     const users = userData.map((project) => project.get({ plain: true }));
+
     const characterData = await Character.findAll({});
     const characters = characterData.map((character) =>
       character.get({ plain: true }));
+
     const classData = await Class.findAll({});
     const classes = classData.map((charaClass) => charaClass.get({ plain: true }));
     characters.forEach((character,i) => character.class=classes[i]);
 
-    console.log(req.session.user_id);
     const currentUserData = await User.findByPk(req.session.user_id);
     const user = currentUserData.get({ plain: true });
+
     delete user.password;
+
     res.render("list", {
       user,
       characters,
       users,
       loggedIn: req.session.loggedIn
     });
-    console.log(8);
   } catch (err) {
     res.status(500).json(err);
   }
