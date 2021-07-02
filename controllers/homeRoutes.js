@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const { Character, User, Class } = require("../models");
-const withAuth = require('../utils/auth');
+const withAuth = require("../utils/auth");
 
 router.get("/", (req, res) => {
   res.render("login");
@@ -23,13 +23,18 @@ router.get("/list", withAuth, async (req, res) => {
     const userData = await User.findAll({});
     const users = userData.map((project) => project.get({ plain: true }));
 
-    const characterData = await Character.findAll({});
+    const characterData = await Character.findAll({
+      include: [Class]
+    });
     const characters = characterData.map((character) =>
-      character.get({ plain: true }));
+      character.get({ plain: true })
+    );
 
     const classData = await Class.findAll({});
-    const classes = classData.map((charaClass) => charaClass.get({ plain: true }));
-    characters.forEach((character,i) => character.class=classes[i]);
+    const classes = classData.map((charaClass) =>
+      charaClass.get({ plain: true })
+    );
+    characters.forEach((character, i) => (character.class = classes[i]));
 
     const currentUserData = await User.findByPk(req.session.user_id);
     const user = currentUserData.get({ plain: true });
